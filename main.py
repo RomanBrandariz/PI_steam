@@ -8,8 +8,6 @@ from funciones import UsersRecommend, sentiment_analysis, UsersWorstDeveloper, P
 # Crea una instancia de la aplicación FastAPI
 app = FastAPI()
 
-
-
 @app.get("/")
 async def root():
     """
@@ -17,13 +15,10 @@ async def root():
     """
     return {"Mensaje": "Proyecto Individual Roman Brandariz"}
 
-
-
 @app.get("/PlayTimeGenre/{genero}", tags=['PlayTimeGenre'])
 async def endpoint1(genero: str):
     """
     Descripción: Retorna el año con más horas jugadas para un género dado.
-    
     Parámetros:
         - genero (str): Género para el cual se busca el año con más horas jugadas. Debe ser un string, ejemplo: Action
     
@@ -50,13 +45,10 @@ async def endpoint1(genero: str):
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
 
-
-
 @app.get("/UserForGenre/{genero}", tags=['UserForGenre'])
 async def endpoint2(genero: str):
     """
     Descripción: Retorna el usuario que acumula más horas jugadas para un género dado y una lista de la acumulación de horas jugadas por año.
-
     Parámetros:
         - genero (str): Género para el cual se busca el usuario con más horas jugadas. Debe ser un string, ejemplo: Adventure
 
@@ -74,7 +66,6 @@ async def endpoint2(genero: str):
             raise HTTPException(status_code=404, detail=f"No se encontró información para el género '{genero}'.")
             
         return result
-    
     except FileNotFoundError as e:
         raise HTTPException(status_code=500, detail=f"Error al cargar el archivo UserForGenre.csv: {str(e)}")
     except Exception as e:
@@ -82,15 +73,12 @@ async def endpoint2(genero: str):
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
 
-
 @app.get("/UsersRecommend/{year}", tags=['UsersRecommend'])
 async def endpoint3(year: str):
     """
     Descripción: Retorna el top 3 de juegos MÁS recomendados por usuarios para el año dado.
-    
     Parámetros:
         - year (str): Año para el cual se busca el top 3 de juegos más recomendados.Debe ser número de 4 digitos, ejemplo: 2015
-
     Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
     """
     try:
@@ -123,11 +111,8 @@ async def endpoint3(year: str):
 async def endpoint4(year: str):
     """
     Descripción: Retorna el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios para el año dado.
-    
     Parámetros:
         - year (str): Año para el cual se busca el top 3 de desarrolladoras menos recomendadas. Debe ser número de 4 digitos, ejemplo: 2015
-
-
     Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
     """
     try:
@@ -145,10 +130,8 @@ async def endpoint4(year: str):
 async def enpoint5(empresa_desarrolladora: str):
     """
     Descripción: Según la empresa desarrolladora, se devuelve un diccionario con el nombre de la desarrolladora como llave y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento como valor.
-    
     Parámetros:
         - empresa_desarrolladora (str): Nombre de la empresa desarrolladora para la cual se realiza el análisis de sentimiento. Debe ser un string, ejemplo: Valve
-    
     Ejemplo de retorno: {'Valve' : [Negative = 182, Neutral = 120, Positive = 278]}
     """
     try:
@@ -165,12 +148,9 @@ async def enpoint5(empresa_desarrolladora: str):
 async def item(item_id: int):
     """
     Descripción: Ingresando el id de producto, devuelve una lista con 5 juegos recomendados similares al ingresado.
-    
     Parámetros:
         - item_id (str): Id del producto para el cual se busca la recomendación. Debe ser un número, ejemplo: 761140
-        
     Ejemplo de retorno: "['弹炸人2222', 'Uncanny Islands', 'Beach Rules', 'Planetarium 2 - Zen Odyssey', 'The Warrior Of Treasures']"
-
     """
     try:
         item_id = int(item_id) 

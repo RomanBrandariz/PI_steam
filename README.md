@@ -23,7 +23,7 @@ El propósito central es la creación del primer modelo de Machine Learning (end
 - **1.2 *Feature Engineering:*** Creé la columna **``` sentiment_analysis ```** aplicando análisis de sentimiento a las reseñas de los usuarios. Se optó por utilizar la biblioteca NLTK (Natural Language Toolkit) con el analizador de sentimientos de Vader, que proporciona una puntuación compuesta que puede ser utilizada para clasificar la polaridad de las reseñas en negativas (valor '0'), neutrales (valor '1') o positivas (valor '2'). A las reseñas escritas ausentes, se les asignó el valor de '1'.
 puede ver el detalle del desarrollo en el notebook [ETL_user_reviews](Notebooks/ETL_user_reviews.ipynb) y profundizar un poco más en el análisis en el [EDA_Análisis Exploratorio de Datos](Notebooks/EDA_AnálisisExploratorioDatos.ipynb). <br />
 
-- **1.3 *Desarrollo de API:*** Implementé una API con FastAPI y se deployó en Render, ésta proporciona cinco (5) consultas sobre información de videojuegos. Puede ver el detalle del código en los notebooks [Funciones](Notebooks/Funciones.ipynb) y [Consultas](Notebooks/Consultas.ipynb).<br />
+- **1.3 *Desarrollo de API:*** Se implemento una API con FastAPI y se deployó en Render, ésta proporciona cinco (5) consultas sobre información de videojuegos. Puede ver el detalle del código en los notebooks [Funciones](Notebooks/Funciones.ipynb) y [Consultas](Notebooks/Consultas.ipynb).<br />
   + Endpoint 1 (PlayTimeGenre): Devuelve año con mas horas jugadas para un género dado.<br />
   + Endpoint 2 (UserForGenre): Devuelve el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año.<br />
   + Endpoint 3 (UsersRecommend): Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado.<br />
@@ -39,7 +39,7 @@ Creé el sistema de recomendación con uno de los enfoques propuestos:
 Se utilizó la métrica de **similitud del coseno**, ya que mide el coseno del ángulo entre dos vectores. Cuanto más cercano a 1, más similares son los vectores. Este método fue clave para determinar qué tan parecidos son los juegos entre sí. Esto se utiliza para generar recomendaciones, ya que los juegos con vectores similares son considerados como recomendaciones potenciales.<br />
 
 **4. Implementación de MLOps** <br />
-**Deploy del Modelo:** Desplegué el modelo de recomendación como parte de la API, la cual puedes consultar acá: **[URL de la API](https://proyecto-individual-1-mlops-9770.onrender.com/docs)**. <br />
+**Deploy del Modelo:** Desplegué el modelo de recomendación como parte de la API, la cual puedes consultar acá: **[URL de la API](https://pi-steam-lksp.onrender.com/docs)**. <br />
 
 **5. Video Explicativo** <br />
 Grabé un video explicativo que muestra el funcionamiento de la API, consultas realizadas y una breve explicación de los modelos de ML utilizados [Google Drive - Video](link_video)<br />
