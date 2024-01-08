@@ -1,48 +1,22 @@
-# En este notebook está el código que 
-
-# ### Librerías
-
-# In[ ]:
-
-
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import traceback  
 from typing import List, Dict
 import pandas as pd
-from functions import UsersRecommend, sentiment_analysis, UsersWorstDeveloper, PlayTimeGenre, UserForGenre, recomendacion_usuario
-
-
-# ### Instancia
-
-# In[ ]:
-
+from funciones import UsersRecommend, sentiment_analysis, UsersWorstDeveloper, PlayTimeGenre, UserForGenre, recomendacion_usuario #importamos las funciones que realizamos
 
 # Crea una instancia de la aplicación FastAPI
 app = FastAPI()
 
 
-# ### Root
-
-# In[ ]:
-
 
 @app.get("/")
 async def root():
     """
-    Proyecto FastAPI - Sistema de Recomendaciones
-
-    Versión: 1.0.0
-
-    ---
-
+    Proyecto Invividual- Sistema de Recomendaciones de Juegos
     """
-    return {"Mensaje": "Proyecto Individual - Roman Brandariz"}
+    return {"Mensaje": "Proyecto Individual Roman Brandariz"}
 
-
-# ### Endpoint 1
-
-# In[ ]:
 
 
 @app.get("/PlayTimeGenre/{genero}", tags=['PlayTimeGenre'])
@@ -51,9 +25,10 @@ async def endpoint1(genero: str):
     Descripción: Retorna el año con más horas jugadas para un género dado.
     
     Parámetros:
-        - genero (str): Género para el cual se busca el año con más horas jugadas. Debe ser un string, ejemplo: Adventure
+        - genero (str): Género para el cual se busca el año con más horas jugadas. Debe ser un string, ejemplo: Action
     
-    Ejemplo de retorno: {"Año de lanzamiento con más horas jugadas para Género Action" : 2011}
+    Ejemplo de retorno: {"Año de lanzamiento con más horas jugadas para Género Action" : 2012}
+    
     """
     try:
         # Validación adicional para asegurarse de que el género no sea nulo o esté vacío
@@ -75,9 +50,6 @@ async def endpoint1(genero: str):
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
 
-# ### Endpoint 2
-
-# In[ ]:
 
 
 @app.get("/UserForGenre/{genero}", tags=['UserForGenre'])
@@ -109,10 +81,6 @@ async def endpoint2(genero: str):
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
-
-# ### Endpoint 3
-
-# In[ ]:
 
 
 @app.get("/UsersRecommend/{year}", tags=['UsersRecommend'])
@@ -151,11 +119,6 @@ async def endpoint3(year: str):
 
 
 
-# ### Endpoint 4
-
-# In[ ]:
-
-
 @app.get("/UsersWorstDeveloper/{year}", tags=['UsersWorstDeveloper'])
 async def endpoint4(year: str):
     """
@@ -178,11 +141,6 @@ async def endpoint4(year: str):
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
 
-# ### Endpoint 5
-
-# In[ ]:
-
-
 @app.get("/sentiment_analysis/{empresa_desarrolladora}", tags=['sentiment_analysis'])
 async def enpoint5(empresa_desarrolladora: str):
     """
@@ -203,11 +161,6 @@ async def enpoint5(empresa_desarrolladora: str):
         raise HTTPException(status_code=500, detail=f"Error interno del servidor: {str(e)}")
 
 
-# ### Sistema de recomendación item-item
-
-# In[ ]:
-
-
 @app.get("/recomendacion_usuario/{item_id}", tags=['recomendacion_usuario item_item'])
 async def item(item_id: int):
     """
@@ -225,4 +178,3 @@ async def item(item_id: int):
         return resultado
     except Exception as e:
         return {"error":str(e)}
-
