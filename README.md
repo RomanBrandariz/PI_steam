@@ -1,12 +1,13 @@
 ![Steam](https://github.com/RomanBrandariz/PI_STEAM/raw/main/assets/steam.png)
 <br />
-# Proyecto Individual: Sistema de Recomendación de Videojuegos para Usuarios de Steam
-
-### Descripción del problema (Contexto y rol a desarrollar)
+.
+# Proyecto Individual: Sistema de Recomendación de Videojuegos para Usuarios de Steam.
+.
+### Descripción del problema (Contexto y rol a desarrollar).
 Tienes tu modelo de recomendación dando unas buenas métricas 😏, y ahora, cómo lo llevas al mundo real? 👀
 El ciclo de vida de un proyecto de Machine Learning debe contemplar desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML según llegan nuevos datos.
 
-### Objetivo
+### Objetivo.
 El propósito central es la creación del primer modelo de Machine Learning (end to end) que resuelva un problema de negocio en Steam, a través de un enfoque que involucra tareas de Data Engineering (ETL, EDA, API) hasta la implementación del ML. Se busca lograr un rápido desarrollo y tener un Producto Mínimo Viable (MVP).<br />
 <br />
 
